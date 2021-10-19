@@ -1,10 +1,25 @@
 from datetime import datetime
 
 import pandas as pd
+from pandas.core.frame import DataFrame
 
-# df = r"planilhas/test.xlsx"
+from uteis import *
 
-date = datetime.today().strftime("%Y-%m-%d")
 
-df = pd.DataFrame(columns=["data", "produto", "preco"])
-df.to_excel("manilha.xlsx", index=False)
+def auto_complete():
+    pass
+
+
+def analisys():
+
+    df = pd.read_excel("teste.xlsx")
+
+    df["total"] = df["valores"] + df["produto"]
+
+    # write the missing values in the xlsx file
+    df.to_excel("teste.xlsx", index=False)
+
+    print(df)
+
+
+analisys()
